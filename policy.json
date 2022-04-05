@@ -1,0 +1,27 @@
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::izaan-mozam2246/*"
+    },
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::izaan-mozam2246/private.txt"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::303352574757:root"
+      },
+      "Action": [
+        "s3:DeleteObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::izaan-mozam2246/*"
+    }
+  ]
+}
