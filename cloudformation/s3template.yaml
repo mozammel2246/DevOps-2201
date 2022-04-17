@@ -1,0 +1,31 @@
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: izaan-mozam-cloudformation
+
+  S3BucketPolicyForCloudFormation:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: izaan-mozam-cloudformation
+      PolicyDocument:
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource:
+              - arn:aws:s3:::izaan-mozam-cloudformation/*
+            Principal: '*'
+          - Action:
+              - 's3:GetObject'
+            Effect: Deny
+            Resource:
+              - arn:aws:s3:::izaan-mozam-cloudformation/private.txt
+            Principal: '*'
+          - Action:
+              - 's3:*'
+            Effect: Allow
+            Resource:
+              - arn:aws:s3:::izaan-mozam-cloudformation/*
+            Principal:
+              AWS: arn:aws:iam::303352574757:user/mozam_admin

@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "rds.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "303352574757",
+          "aws:SourceArn": "arn:aws:rds:us-east-1:303352574757:db:database-devops-2201"
+        }
+      }
+    }
+  ]
+}

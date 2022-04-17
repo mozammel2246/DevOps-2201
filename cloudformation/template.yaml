@@ -1,0 +1,13 @@
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: devops-cloudformation-2022
+  WebServer:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0c02fb55956c7d316
+      KeyName: cf-keypair
+      InstanceType: t2.micro
+
+
